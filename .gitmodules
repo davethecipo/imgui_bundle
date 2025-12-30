@@ -20,8 +20,8 @@
 	branch = imgui_bundle
 [submodule "external/imgui-node-editor/imgui-node-editor"]
 	path = external/imgui-node-editor/imgui-node-editor
-	url = https://github.com/pthom/imgui-node-editor.git
-	branch = imgui_bundle
+	url = https://github.com/davethecipo/imgui-node-editor.git
+	branch = add-get-link-curve-api
 [submodule "external/imgui_md/imgui_md"]
 	path = external/imgui_md/imgui_md
 	url = https://github.com/pthom/imgui_md.git
