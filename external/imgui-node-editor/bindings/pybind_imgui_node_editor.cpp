@@ -714,6 +714,17 @@ void py_init_module_imgui_node_editor(nb::module_& m)
         nb::arg("link_id"), nb::arg("start_pin_id"), nb::arg("end_pin_id"),
         "pass None if particular pin do not interest you");
 
+    m.def("get_link_curve",
+        [](ax::NodeEditor::LinkId linkId) -> std::optional<std::array<ImVec2, 4>> {
+            ImVec2 p0, p1, p2, p3;
+            bool success = ax::NodeEditor::GetLinkCurve(linkId, &p0, &p1, &p2, &p3);
+            if (!success)
+                return std::nullopt;
+            return std::array<ImVec2, 4>{p0, p1, p2, p3};
+        },
+        nb::arg("link_id"),
+        "Get bezier curve control points (P0, P1, P2, P3) for a link. Returns None for complex paths.");
+
     m.def("pin_had_any_links",
         ax::NodeEditor::PinHadAnyLinks, nb::arg("pin_id"));
 
